@@ -8,9 +8,12 @@ const POSITION_CENTER = 3;
 
 var good = new Audio();
 var wrong = new Audio();
+var bgm = new Audio();
 good.src = "music/v.wav";
 wrong.src ="music/x.wav";
+bgm.src ="music/bgm.mp3";
 
+let isStart = false;
 let score = 0;
 let time = 60;
 let prevPosition = -1;
@@ -54,59 +57,86 @@ function createFood(){
 function keyEvent(e) {
     var key = e.keyCode;
     let curr = foods[0];
-
-    if (key == KEY_LEFT && isAnimationDone) {
-        if(curr.getAttribute("position") == POSITION_LEFT){
-            document.getElementById("person").style.backgroundImage = "url(image/person-eat-left.png)";
-            score+=10;
-            document.getElementById("score").innerText = "Score: " + score;
-            animateScript(-11, 185.25);
-            foods.splice(0, 1);
-            curr.remove();
-            good.play();
-            drawFood();
-            good.play();
+    if(!isStart && key == 13){
+        isStart = true;
+        let placeholder = document.getElementById("placeholder");
+        let countTag = document.getElementById("countdown");
+        let count = 3;
+        let countdown = setInterval (function(){
+            countTag.innerText = count;
+            if(count == 0){
+                clearInterval(countdown);
+                placeholder.remove();
+                play();
+                bgm.play();
+            }
+            count--;
         }
-        else{
-            document.getElementById("person").style.backgroundImage = "url(image/person-wrong-left.png)";
-            animateScript(-11, 185.25);
-            wrong.play();
-        }
+        , 1000 );
         
-    }else if (key == KEY_DOWN || key == KEY_UP && isAnimationDone) {
-        if(curr.getAttribute("position") == POSITION_CENTER){
-            document.getElementById("person").style.backgroundImage = "url(image/person-eat-right.png)";
-            score+=10;
-            document.getElementById("score").innerText = "Score: " + score;
-            animateScript(-11, 185.25);
-            foods.splice(0, 1);
-            curr.remove();
-            good.play();
-            drawFood();
-        }
-        else{
-            document.getElementById("person").style.backgroundImage = "url(image/person-wrong-left.png)";
-            animateScript(-11, 185.25);
-            wrong.play();
-        }
-
-    }else if(key == KEY_RIGHT && isAnimationDone){
-        if(curr.getAttribute("position") == POSITION_RIGHT){
-            document.getElementById("person").style.backgroundImage = "url(image/person-eat-right.png)";
-            score+=10;
-            document.getElementById("score").innerText = "Score: " + score;
-            animateScript(-11, 185.25);
-            foods.splice(0, 1);
-            curr.remove();
-            good.play();
-            drawFood();
-        }
-        else{
-            document.getElementById("person").style.backgroundImage = "url(image/person-wrong-right.png)";
-            animateScript(-11, 185.25);
-            wrong.play();
+        
+    }
+    if(isStart){
+        if (key == KEY_LEFT && isAnimationDone) {
+            if(curr.getAttribute("position") == POSITION_LEFT){
+                document.getElementById("person").style.backgroundImage = "url(image/person-eat-left.png)";
+                score+=10;
+                document.getElementById("score").innerText = "Score: " + score;
+                animateScript(-11, 185.25);
+                foods.splice(0, 1);
+                curr.remove();
+                good.play();
+                drawFood();
+                good.play();
+            }
+            else{
+                document.getElementById("person").style.backgroundImage = "url(image/person-wrong-left.png)";
+                animateScript(-11, 185.25);
+                wrong.play();
+                score-=5;
+                document.getElementById("score").innerText = "Score: " + score;
+            }
+            
+        }else if (key == KEY_DOWN || key == KEY_UP && isAnimationDone) {
+            if(curr.getAttribute("position") == POSITION_CENTER){
+                document.getElementById("person").style.backgroundImage = "url(image/person-eat-right.png)";
+                score+=10;
+                document.getElementById("score").innerText = "Score: " + score;
+                animateScript(-11, 185.25);
+                foods.splice(0, 1);
+                curr.remove();
+                good.play();
+                drawFood();
+            }
+            else{
+                document.getElementById("person").style.backgroundImage = "url(image/person-wrong-left.png)";
+                animateScript(-11, 185.25);
+                wrong.play();
+                score-=5;
+                document.getElementById("score").innerText = "Score: " + score;
+            }
+    
+        }else if(key == KEY_RIGHT && isAnimationDone){
+            if(curr.getAttribute("position") == POSITION_RIGHT){
+                document.getElementById("person").style.backgroundImage = "url(image/person-eat-right.png)";
+                score+=10;
+                document.getElementById("score").innerText = "Score: " + score;
+                animateScript(-11, 185.25);
+                foods.splice(0, 1);
+                curr.remove();
+                good.play();
+                drawFood();
+            }
+            else{
+                document.getElementById("person").style.backgroundImage = "url(image/person-wrong-right.png)";
+                animateScript(-11, 185.25);
+                wrong.play();
+                score-=5;
+                document.getElementById("score").innerText = "Score: " + score;
+            }
         }
     }
+   
 }
 
 function toIdle(){
@@ -133,9 +163,9 @@ function animateScript(position, addition) {
 }
 
 window.onkeyup = keyEvent;
-window.onload = function(){
-    play();
-}
+// window.onload = function(){
+//     //
+// }
 
 function play(){
     score = 0;

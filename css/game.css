@@ -1,7 +1,8 @@
 @font-face {
     font-family: 'retrofont';
     src: url('../fonts/ARCADECLASSIC.TTF')  format('truetype');
-  }
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -20,26 +21,32 @@ body{
 .container{
     display: flex;
     border: 2px black solid;
+    height: 500px;
 }
 
 .container-score{
     width: 200px;
+    height: 500px;
     background-color: #ed2939;
     border-left: 2px black solid;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    
 }
 
-.container-score h2, .container-score p{
+.container-score p{
     margin-left: 20px;
     margin-right: 20px;
 }
 
+.container-score h2{
+    margin-left: 0px;
+}
+
 .container-game{
+    height: 500px;
     background-image: url('../image/background.png');
     width: 325px;
-    height: 500px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -81,6 +88,7 @@ body{
     width: 100%;
     height: 60px;
     display: flex;
+    overflow: hidden;
 }
 
 .food-right{

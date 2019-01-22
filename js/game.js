@@ -45,6 +45,8 @@ window.onkeyup = function(e) {
 
     if (key == KEY_LEFT) {
         if(curr.getAttribute("position") == POSITION_LEFT){
+            document.getElementById("person").style.backgroundImage = "url(image/person-eat-left.png)";
+            animateScript();
             foods.splice(0, 1);
             curr.remove();
             drawFood();
@@ -54,6 +56,7 @@ window.onkeyup = function(e) {
         }
     }else if (key == KEY_DOWN || key == KEY_UP) {
         if(curr.getAttribute("position") == POSITION_CENTER){
+            animateScript();
             foods.splice(0, 1);
             curr.remove();
             drawFood();
@@ -63,6 +66,8 @@ window.onkeyup = function(e) {
         }
     }else if(key == KEY_RIGHT){
         if(curr.getAttribute("position") == POSITION_RIGHT){
+            document.getElementById("person").style.backgroundImage = "url(image/person-eat-right.png)";
+            animateScript();
             foods.splice(0, 1);
             curr.remove();
             drawFood();
@@ -76,7 +81,7 @@ window.onkeyup = function(e) {
 
 function animateScript() {
     var position = 183;
-    const interval = 225;
+    const interval = 100;
     let tID = setInterval (function(){
     document.getElementById("person").style.backgroundPosition = `-${position}px 0px`; 
     if(position < 300) 

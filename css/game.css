@@ -64,8 +64,8 @@ body{
 #person{
     width:185.25px;
     height: 75%;
-    background-image: url("../image/person-wrong-right.png");
-    background-position: 0;
+    background-image: url("../image/person-idle.png");
+    background-position: -11px;
     background-size: cover;
 }
 

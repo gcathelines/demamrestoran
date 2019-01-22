@@ -8,10 +8,8 @@ const POSITION_CENTER = 3;
 
 var good = new Audio();
 var wrong = new Audio();
-var bgm = new Audio();
-good.src = "url('./../music/v.wav"
-bgm.src = "url('./../music/bgm.mp3";
-wrong.src = "url('./../music/x.wav";
+good.src = "music/v.wav";
+wrong.src ="music/x.wav";
 
 let score = 0;
 let time = 60;
@@ -146,7 +144,6 @@ function play(){
     foods = new Array();
     tID = null;
     isAnimationDone = true;
-    bgm.play();
     let timeTag = document.getElementById("time");
     let timer = setInterval(function(){
         if(time == 0){

@@ -163,9 +163,6 @@ function animateScript(position, addition) {
 }
 
 window.onkeyup = keyEvent;
-// window.onload = function(){
-//     //
-// }
 
 function play(){
     score = 0;

@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'retrofont';
+    src: url('../fonts/ARCADECLASSIC.TTF')  format('truetype');
+  }
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #111e6c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: retrofont;
+}
+
+.container{
+    display: flex;
+    border: 2px black solid;
+}
+
+.container-score{
+    width: 200px;
+    background-color: #ed2939;
+    border-left: 2px black solid;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.container-score h2, .container-score p{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.container-game{
+    background-image: url('../image/background.png');
+    width: 325px;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.container-person{
+    width: 325px;
+    height: 187px;
+    position: relative;
+}
+
+
+#person{
+    width:57%;
+    height: 75%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);    
+    top: 30%;
+    background-image: url("../image/person-idle.png");
+    background-position: 0;
+    background-size: cover;
+}
+
+.container-food{
+    width: 325px;
+    height: 313px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foods{
+    width: 75%;
+    height: 313px;
+    overflow: hidden;
+}
+
+
+.food{
+    width: 100%;
+    height: 60px;
+    display: flex;
+}
+
+.food-right{
+    justify-content: flex-end;
+}
+
+.food-left{
+    justify-content: flex-start;
+}
+.food-center{
+    justify-content: center;
+}
+
+.food-image{
+    background-size: cover;
+    width: 33%;
+    height: 100%;
+}
+
+.food-1{
+    background-image: url("../image/food1.png");
+}
+
+.food-2{
+    background-image: url("../image/food2.png");
+}
+.food-3{
+    background-image: url("../image/food3.png");
+}
+.food-4{
+    background-image: url("../image/food4.png");
+}
+

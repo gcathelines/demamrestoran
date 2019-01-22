@@ -12,6 +12,7 @@ var bgm = new Audio();
 good.src = "music/v.wav";
 wrong.src ="music/x.wav";
 bgm.src ="music/bgm.mp3";
+bgm.loop = true;
 
 let isStart = false;
 let score = 0;

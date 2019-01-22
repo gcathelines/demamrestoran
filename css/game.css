@@ -48,18 +48,16 @@ body{
 .container-person{
     width: 325px;
     height: 187px;
-    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 
 #person{
-    width:57%;
+    width:185.25px;
     height: 75%;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);    
-    top: 30%;
-    background-image: url("../image/person-idle.png");
+    background-image: url("../image/person-wrong-right.png");
     background-position: 0;
     background-size: cover;
 }

@@ -5,6 +5,7 @@ const KEY_DOWN = 40;
 const POSITION_LEFT = 1;
 const POSITION_RIGHT = 2;
 const POSITION_CENTER = 3;
+
 let foods = new Array();
 
 function generateFoods(){
@@ -48,27 +49,47 @@ window.onkeyup = function(e) {
             curr.remove();
             drawFood();
         }
-        else{}
-            //error
+        else{
+
+        }
     }else if (key == KEY_DOWN || key == KEY_UP) {
         if(curr.getAttribute("position") == POSITION_CENTER){
             foods.splice(0, 1);
             curr.remove();
             drawFood();
         }
-        else{}
-            //error
+        else{
+
+        }
     }else if(key == KEY_RIGHT){
         if(curr.getAttribute("position") == POSITION_RIGHT){
             foods.splice(0, 1);
             curr.remove();
             drawFood();
         }
-        else{}
-            //error
+        else{
+
+        }
     }
+}
+
+
+function animateScript() {
+    var position = 183;
+    const interval = 225;
+    let tID = setInterval (function(){
+    document.getElementById("person").style.backgroundPosition = `-${position}px 0px`; 
+    if(position < 300) 
+        position = position + 185.25;
+    else
+        clearInterval(tID);
+    }
+    , interval ); 
 }
 
 window.onload = function(){
     generateFoods();
+
+    
+    animateScript();
 }
